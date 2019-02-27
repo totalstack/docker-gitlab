@@ -57,5 +57,8 @@ VOLUME ["/etc/gitlab", "/var/opt/gitlab", "/var/log/gitlab"]
 # Expose web & ssh
 EXPOSE 443 80 22
 
+# Copy assets
+COPY assets/wrapper /usr/local/bin/
+
 # Wrapper to handle signal, trigger runit and reconfigure Gitlab
 CMD ["/usr/local/bin/wrapper"]
